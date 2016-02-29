@@ -1,0 +1,60 @@
+@import 'compass';
+@import 'compass/css3';
+@import "compass/utilities/sprites";
+
+$calendar-cell-size: 58px;
+
+
+.calendar-wrapper{
+  .calendar-header{
+
+  }
+  .calendar{
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 400px;
+    border:1px solid red;
+    thead{
+      font-size:15px;
+      th {
+        background: orange;
+      }
+    }
+    tbody{
+      font-size:14px;
+    }
+    thead,tbody{
+      div{
+        width: $calendar-cell-size;
+        height:$calendar-cell-size;
+        line-height: $calendar-cell-size;
+      }
+    }
+    th,td{
+      text-align: center;
+      border:1px solid red;
+    }
+    .cell{
+      background: #ff8000;
+      @include transition(all, 0.8s);
+      &:hover{
+        background: yellow;
+        color: #666666;
+        cursor: pointer;
+      }
+    }
+    .disabled-date{
+      background: gray;
+    }
+    .today{
+      background: darken(#ff8000, 30%);
+    }
+  }
+  .calendar-footer{
+    button{
+      min-width: 50px;
+      height: 40px;
+      background: #ffbbaa;
+    }
+  }
+}

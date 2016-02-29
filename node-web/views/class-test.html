@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function extend(base, options){
+        var fn = function fn(){};
+        fn.prototype = new base();
+        fn.prototype.constructor = base.prototype.constructor;
+        for (p in options){
+            if (options.hasOwnProperty(p)){
+                fn.prototype[p] = options[p];
+            }
+        }
+        return fn;
+    }
+    function Person(){
+        this.name = 'person';
+    }
+    Person.prototype.hi = function(){
+        console.log('hi:'+this.name);
+    }
+
+    var Man = extend(Person, {
+        name:'man'
+    })
+
+    man = new Man();
+    man.hi();
+
+    var Sam = extend(Man,{
+        name:'sam'
+    })
+    sam = new Sam();
+    sam.hi();
+</script>
+</body>
+</html>

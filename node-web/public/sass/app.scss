@@ -1,0 +1,77 @@
+@import 'compass';
+@import 'compass/css3';
+@import "compass/utilities/sprites";
+@import 'compass/reset';
+
+@import "./calendar-default.scss";
+@import "../external-css/style.css";
+
+/*$icons-layout:horizontal;*/
+$icons-sprite-dimensions:true;
+@import "icons/*.png";
+@include all-icons-sprites;
+
+.myButton{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  cursor:pointer;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  display: inline-block;
+  color: darken(gray,10%);
+  @include border-radius(10px);
+  @include background(red); /* Standard syntax */
+  @include transition(all, 0.5s);
+  @include box-shadow(5px 5px 5px #888888);
+  &:hover{
+    background: orange;
+    color: white;
+    @include box-shadow(-5px -5px 5px #888888);
+  }
+  &:after{
+    content: '$';
+  }
+}
+
+.img-save{
+	@include icons-sprite(save);
+}
+
+.hasAnimation{
+  @include transition(all,0.5s);
+}
+
+.up-arrow{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 16.3px 10px;
+  border-color: transparent transparent #56a637 transparent;
+  @include transition(all, 0.5s);
+  &:hover{
+    @include transform(rotate(180deg));
+  }
+}
+
+.myapp{
+  background:blue;
+  &:hover{
+
+  }
+  .component1{
+    width: 100px;
+    height: 5em;
+    &:before{
+
+    }
+    &:after{
+      content: '';
+      display: table-cell;
+
+    }
+  }
+}
+
+
